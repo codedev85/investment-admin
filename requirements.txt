@@ -1,0 +1,13 @@
+asgiref==3.8.1
+Django==3.2.25
+gunicorn==23.0.0
+packaging==24.2
+psycopg2==2.9.10
+pytz==2024.2
+sqlparse==0.5.2
+python-dotenv==0.21.0
+djangorestframework==3.14.0
+django-cors-headers==3.14.0
+pyjwt==2.8.0
+psycopg2
+mysqlclient>=2.0.0
