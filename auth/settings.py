@@ -9,8 +9,10 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +22,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-7cv%)jt7$cz&(u%ewxpvb#5(#cd%htvu9x#_ih(70jcr^&8up5"
+# SECRET_KEY = "django-insecure-7cv%)jt7$cz&(u%ewxpvb#5(#cd%htvu9x#_ih(70jcr^&8up5"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Now you can access your variables like this:
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+DEBUG = os.getenv('DEBUG') == 'True'
 
 
 # Application definition
@@ -82,11 +93,11 @@ WSGI_APPLICATION = "auth.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "investment_db",
-        "USER": "root",
-        "PASSWORD": "",
-        'HOST': "127.0.0.1",
-        'PORT': "3306",
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
@@ -139,11 +150,11 @@ CORS_ALLOW_CREDENTIALS = True
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'  # Default Mailtrap host
-EMAIL_PORT = 587  # or 2525
-EMAIL_USE_TLS = True  # Mailtrap supports TLS
-EMAIL_HOST_USER = '8704273661ad93'  # Replace with your Mailtrap username
-EMAIL_HOST_PASSWORD = '3ea5d60c536edc'  # Replace with your Mailtrap password
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
 
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
