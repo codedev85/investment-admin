@@ -153,7 +153,7 @@ SESSION_COOKIE_SECURE = True  # Same for session cookies
 
 CSRF_TRUSTED_ORIGINS = [
     "https://investmentui.veloxsolution.ng/",  # React frontend URL
-    "https://investment.veloxsolution.ng",
+    "https://investment.veloxsolution.ng/",
     "investmentui.veloxsolution.ng/",  # Backend URL
 ]
 
