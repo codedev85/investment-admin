@@ -148,9 +148,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://investment.veloxsolution.ng/api",  # Backend Url
-    "https://investmentui.veloxsolution.ng/",  # FrontEnd Url
+    "https://investmentui.veloxsolution.ng",  # React frontend URL
+    "https://investment.veloxsolution.ng",    # Backend URL
 ]
+
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # LocalFrontEnd Url
     "https://investmentui.veloxsolution.ng",
