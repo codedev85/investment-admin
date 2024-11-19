@@ -150,9 +150,9 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = ['https://investmentui.veloxsolution.ng/']
+CSRF_TRUSTED_ORIGINS = ['https://investmentui.veloxsolution.ng']
 
-CORS_ALLOWED_ORIGINS = ['https://investmentui.veloxsolution.ng/']
+CORS_ALLOWED_ORIGINS = ['https://investmentui.veloxsolution.ng']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')

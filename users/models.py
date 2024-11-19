@@ -29,7 +29,6 @@ class User(AbstractUser):
         return self.email
 
 
-
 class InvestmentPlan(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
@@ -124,7 +123,6 @@ class Transaction(models.Model):
         self.balance_after_transaction = self.wallet.balance
 
         super().save(*args, **kwargs)
-
 
 
 class InvestmentSubscription(models.Model):

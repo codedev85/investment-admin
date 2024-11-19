@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from .views import RegisterView,LoginView,UserView,LogOutView,ActivateAccountView,InvestmentPlanListView,InvestmentPlanView,SubscribeToInvestmentPlanView,UserWalletDetailsView,UserWalletFundingView,UserFetchTransactionView,UserWalletWithdrawalView,TokenVerificationView,ValidateActivationCodeView
-
+from .views import RegisterView,LoginView,UserView,LogOutView,ActivateAccountView,InvestmentPlanListView,InvestmentPlanView,SubscribeToInvestmentPlanView,UserWalletDetailsView,UserWalletFundingView,UserFetchTransactionView,UserWalletWithdrawalView,TokenVerificationView,ValidateActivationCodeView,GetSubscriptionPlanChartView,TransactionSummaryView
 urlpatterns = [
 
     path("register", RegisterView.as_view()),
@@ -18,6 +17,10 @@ urlpatterns = [
     path('withdraw/fund',UserWalletWithdrawalView.as_view(), name='withdraw_fund'),
     path('validate/token',TokenVerificationView.as_view(), name='validate_token'),
     path('activate/code', ValidateActivationCodeView.as_view(), name='activate_code'),
+    path('get/subscription/chart', GetSubscriptionPlanChartView.as_view(), name='subscription_chart'),
+    path('transaction/summary', TransactionSummaryView.as_view(), name='transaction_summary'),
+
+
 
 
 

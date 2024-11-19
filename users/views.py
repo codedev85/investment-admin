@@ -20,6 +20,10 @@ from django.utils.timezone import now
 from decimal import Decimal
 import random
 from django.core.exceptions import ObjectDoesNotExist
+from django.db.models import Count
+from django.utils import timezone
+from django.db.models.functions import TruncMonth
+from django.db.models import Sum
 
 
 # from datetime import datetime, timezone
@@ -561,3 +565,52 @@ class ValidateActivationCodeView(APIView):
         activation_code.delete()
 
         return Response({'status': 'true', 'message': 'Account successfully activated.'}, status=status.HTTP_200_OK)
+
+
+class GetSubscriptionPlanChartView(APIView):
+    def get(self, request):
+        # Get the current year for filtering
+        current_year = timezone.now().year
+
+        # Query the InvestmentSubscription model to group by month and count investments
+        investments = (
+            InvestmentSubscription.objects
+            .filter(subscription_date__year=current_year)
+            .annotate(month=TruncMonth('subscription_date'))
+            .values('month')
+            .annotate(investment_count=Count('id'))
+            .order_by('month')  # Order by month
+        )
+
+        # Prepare the data for the frontend
+        months = []
+        investment_counts = []
+
+        for investment in investments:
+            # Format the month and add to the list
+            months.append(investment['month'].strftime('%B'))
+            investment_counts.append(investment['investment_count'])
+
+        # Return the response with the data
+        return Response({
+            'status': 'true',
+            'message': 'Subscription Plan Chart successfully fetched.',
+            'months': months,
+            'investment_counts': investment_counts
+        }, status=status.HTTP_200_OK)
+
+
+class TransactionSummaryView(APIView):
+    def get(self, request):
+
+        total_deposit = Transaction.objects.filter(transaction_type=Transaction.DEPOSIT).aggregate(Sum('amount'))[
+                            'amount__sum'] or 0
+        total_withdrawal = Transaction.objects.filter(transaction_type=Transaction.WITHDRAWAL).aggregate(Sum('amount'))[
+                               'amount__sum'] or 0
+
+        return Response({
+            'status': 'true',
+            'message': 'Transaction summary successfully fetched.',
+            'total_deposit': total_deposit,
+            'total_withdrawal': total_withdrawal,
+        }, status=status.HTTP_200_OK)
