@@ -148,13 +148,16 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://investment.veloxsolution.ng",  # BBackend Url
+    "https://investment.veloxsolution.ng",  # Backend Url
     "http://investmentui.veloxsolution.ng",  # FrontEnd Url
 ]
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # LocalFrontEnd Url
-    "http://investmentui.veloxsolution.ng",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # LocalFrontEnd Url
+#     "http://investmentui.veloxsolution.ng",
+# ]
+
+CSRF_USE_SESSIONS = False
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
