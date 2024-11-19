@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['https://investmentui.veloxsolution.ng']
+ALLOWED_HOSTS = ['https://investmentui.veloxsolution.ng/','investmentui.veloxsolution.ng/']
 
 # Load environment variables from .env file
 load_dotenv()
