@@ -150,23 +150,27 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://investmentui.veloxsolution.ng/",  # React frontend URL
-    "https://investment.veloxsolution.ng/",
-    "investmentui.veloxsolution.ng/",  # Backend URL
-    ".veloxsolution.ng",
-    'https//*.veloxsolution.ng',
-    "*.veloxsolution.ng",
-]
+# CSRF_TRUSTED_ORIGINS = [
+#     "https://investmentui.veloxsolution.ng/",  # React frontend URL
+#     "https://investment.veloxsolution.ng/",
+#     "investmentui.veloxsolution.ng/",  # Backend URL
+#     ".veloxsolution.ng",
+#     'https//*.veloxsolution.ng',
+#     "*.veloxsolution.ng",
+# ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # LocalFrontEnd Url
-    "https://investmentui.veloxsolution.ng/",
-    "investmentui.veloxsolution.ng/",
-    'https//*.veloxsolution.ng',
-    "*.veloxsolution.ng",
-    ".veloxsolution.ng",
-]
+CSRF_TRUSTED_ORIGINS = ['https://investmentui.veloxsolution.ng']
+
+CORS_ALLOWED_ORIGINS = ['https://investmentui.veloxsolution.ng']
+
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:3000",  # LocalFrontEnd Url
+#     "https://investmentui.veloxsolution.ng/",
+#     "investmentui.veloxsolution.ng/",
+#     'https//*.veloxsolution.ng',
+#     "*.veloxsolution.ng",
+#     ".veloxsolution.ng",
+# ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
