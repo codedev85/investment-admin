@@ -147,6 +147,11 @@ AUTH_USER_MODEL = 'users.User'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
+CSRF_COOKIE_HTTPONLY = False  # Allow frontend access via JavaScript
+CSRF_COOKIE_SECURE = True  # Set to True if using HTTPS
+SESSION_COOKIE_SECURE = True  # Same for session cookies
+
+
 CSRF_TRUSTED_ORIGINS = [
     "https://investmentui.veloxsolution.ng",  # React frontend URL
     "https://investment.veloxsolution.ng",    # Backend URL
