@@ -13,6 +13,7 @@ This project is a Django-based web application with email functionality configur
 6. [Apply Migrations](#apply-migrations)
 7. [Run Server](#run-server)
 8. [Hosted Url & Admin Credentials](#hosted-url-&-admin-credentials)
+9. [Testing](#testing)
 
 
 ---
@@ -89,4 +90,8 @@ python manage.py runserver
 url : https://investment.veloxsolution.ng/admin
 email : admin2@admin.com
 password : password
+```
+## 9. Testing 
+```
+python manage.py test
 ```
