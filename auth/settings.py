@@ -147,6 +147,16 @@ AUTH_USER_MODEL = 'users.User'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://investmentui.veloxsolution.ng",
+    "http://investmentui.veloxsolution.ng",
+]
+CORS_ALLOWED_ORIGINS = [
+    "https://investmentui.veloxsolution.ng",
+    "http://investmentui.veloxsolution.ng",
+]
+
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = os.getenv('EMAIL_PORT')
