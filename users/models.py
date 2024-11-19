@@ -29,6 +29,7 @@ class User(AbstractUser):
         return self.email
 
 
+
 class InvestmentPlan(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.TextField()
