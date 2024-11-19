@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-ALLOWED_HOSTS = ['https://investmentui.veloxsolution.ng/','investmentui.veloxsolution.ng/']
+ALLOWED_HOSTS = ['https://investmentui.veloxsolution.ng/', 'investmentui.veloxsolution.ng/']
 
 # Load environment variables from .env file
 load_dotenv()
@@ -162,6 +162,15 @@ CORS_ALLOWED_ORIGINS = [
     "https://investmentui.veloxsolution.ng/",
     "investmentui.veloxsolution.ng/"
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
+}
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
