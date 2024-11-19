@@ -151,20 +151,17 @@ CSRF_COOKIE_HTTPONLY = False  # Allow frontend access via JavaScript
 CSRF_COOKIE_SECURE = True  # Set to True if using HTTPS
 SESSION_COOKIE_SECURE = True  # Same for session cookies
 
-
 CSRF_TRUSTED_ORIGINS = [
-    "https://investmentui.veloxsolution.ng",  # React frontend URL
-    "https://investment.veloxsolution.ng",    # Backend URL
+    "https://investmentui.veloxsolution.ng/",  # React frontend URL
+    "https://investment.veloxsolution.ng",
+    "investmentui.veloxsolution.ng/",  # Backend URL
 ]
-
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # LocalFrontEnd Url
-    "https://investmentui.veloxsolution.ng",
+    "https://investmentui.veloxsolution.ng/",
+    "investmentui.veloxsolution.ng/"
 ]
-
-
-
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
