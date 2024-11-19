@@ -148,7 +148,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://investment.veloxsolution.ng",  # Backend Url
+    "https://investment.veloxsolution.ng/api",  # Backend Url
     "http://investmentui.veloxsolution.ng",  # FrontEnd Url
 ]
 # CORS_ALLOWED_ORIGINS = [
