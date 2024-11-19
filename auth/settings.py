@@ -147,9 +147,9 @@ AUTH_USER_MODEL = 'users.User'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
-CSRF_COOKIE_HTTPONLY = False  # Allow frontend access via JavaScript
-CSRF_COOKIE_SECURE = True  # Set to True if using HTTPS
-SESSION_COOKIE_SECURE = True  # Same for session cookies
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
 
 CSRF_TRUSTED_ORIGINS = [
     "https://investmentui.veloxsolution.ng/",  # React frontend URL
@@ -163,14 +163,6 @@ CORS_ALLOWED_ORIGINS = [
     "investmentui.veloxsolution.ng/"
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-    ),
-    'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
-    ),
-}
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
